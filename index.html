@@ -12,6 +12,9 @@
 
 body {
 	margin: 0px;
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+  background-position: center center;
 }
 
 #container {
@@ -67,6 +70,8 @@ body {
 		</filter>
 	</defs>
 </svg>
+
+<button onclick="setBg()" id="myBtn">Клікни мене</button>
 
 <script>
   /*
@@ -164,6 +169,21 @@ function animate() {
 
 // Start the animation.
 animate();
+
+
+function setBg() {
+  document.getElementById("myBtn").disabled = true;
+  let a = ['https://i.ibb.co/QrgYbBm/photo-2023-11-07-00-09-10.jpg', 'https://i.ibb.co/PDgRTgN/photo-2023-11-06-00-19-29.jpg', 'https://i.ibb.co/c1RwMhx/photo-2023-10-10-00-45-50.jpg', 'https://i.ibb.co/8Yrq4XC/photo-2023-10-25-21-59-54.jpg', 'https://i.ibb.co/mXkyZK9/photo-2023-10-09-17-47-01.jpg', 'https://i.ibb.co/pwC1vdQ/photo-2023-10-09-17-41-09.jpg', 'https://i.ibb.co/h2nkfLP/photo-2023-10-22-23-23-32.jpg', 'https://i.ibb.co/M7dkbzB/photo-2023-11-02-10-45-18.jpg']
+  let myNum = Math.floor(Math.random() * (7 - 0)) + 0
+  let bd = document.getElementsByTagName("body")[0];
+  bd.style.backgroundImage = `url(${a[myNum]})`;
+  console.log(myNum);
+
+  setTimeout(()=>{
+    bd.style.backgroundImage = "none"
+    document.getElementById("myBtn").disabled = false;
+  }, 500)
+}
 </script>
 </body>
 </html>
